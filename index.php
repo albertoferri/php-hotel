@@ -56,27 +56,43 @@
 <body>
     
     <div class="container my-5">
+
         <h1 class="text-center mb-5">HOTEL</h1>
+
         <div class="container">
-            <?php foreach ($hotels as $hotel) { ?>
-                <h2>
-                    <?php echo $hotel['name']; ?>
-                </h2>
-                <p>
-                    <?php echo $hotel['description']; ?>
-                </p>
-                <p>
-                    Parcheggio: <?php echo $hotel['parking'] ? 'True' : 'False'; ?>
-                </p>
-                <p>
-                    Voto: <?php echo $hotel['vote']; ?>
-                </p>
-                <p>
-                    Distanza dal centro: <?php echo $hotel['distance_to_center']; ?> km
-                </p>
-                <hr>
-            <?php } ?>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Descrizione</th>
+                        <th scope="col">Parcheggio</th>
+                        <th scope="col">Voto</th>
+                        <th scope="col">Distanza dal centro</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($hotels as $hotel) { ?>
+                        <tr>
+                            <td>
+                                <?php echo $hotel['name']; ?>
+                            </td>
+                            <td>
+                                <?php echo $hotel['description']; ?>
+                            </td>
+                            <td>
+                                <?php echo $hotel['parking'] ? 'Sì' : 'No'; ?>
+                            </td>
+                            <td>
+                                <?php echo $hotel['vote']; ?></td>
+                            <td>
+                                <?php echo $hotel['distance_to_center']; ?> km
+                            </td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
         </div>
+
     </div>
 
 
