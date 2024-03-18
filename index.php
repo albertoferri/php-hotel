@@ -55,8 +55,28 @@
 </head>
 <body>
     
-    <div class="container">
-        
+    <div class="container my-5">
+        <h1 class="text-center mb-5">HOTEL</h1>
+        <div class="container">
+            <?php foreach ($hotels as $hotel) { ?>
+                <h2>
+                    <?php echo $hotel['name']; ?>
+                </h2>
+                <p>
+                    <?php echo $hotel['description']; ?>
+                </p>
+                <p>
+                    Parcheggio: <?php echo $hotel['parking'] ? 'True' : 'False'; ?>
+                </p>
+                <p>
+                    Voto: <?php echo $hotel['vote']; ?>
+                </p>
+                <p>
+                    Distanza dal centro: <?php echo $hotel['distance_to_center']; ?> km
+                </p>
+                <hr>
+            <?php } ?>
+        </div>
     </div>
 
 
