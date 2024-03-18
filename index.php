@@ -40,6 +40,15 @@
 
     ];
 
+    $parkFilter = isset($_GET['parking']);
+
+    // Se la checkbox è selezionata, filtriamo gli hotel che hanno il parcheggio
+    if ($parkFilter) {
+        $hotels = array_filter($hotels, function ($hotel) {
+            return $hotel['parking'] == true;
+        });
+    }
+
 ?>
 
 
@@ -60,6 +69,23 @@
         <h1 class="text-center mb-5">HOTEL</h1>
 
         <div class="container">
+
+            <!-- Form per filtrare gli hotel con parcheggio -->
+            <form method="GET">
+                <div class="form-check p-2 d-flex justify-content-end align-items-center gap-3 mb-3">
+                    <input class="form-check-input" type="checkbox" value="1" id="parking" name="parking" <?php if ($parkFilter) echo 'checked'; ?>>
+                    <label class="form-check-label" for="parking">
+                        Mostra solo hotel con parcheggio
+                    </label>
+                    <button type="submit" class="btn btn-outline-primary fw-bold">Filtra</button>
+                </div>
+            </form>
+
+
+
+
+
+
             <table class="table">
                 <thead>
                     <tr>
